@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS `accountant`;
 
+USE `accountant`;
+
 CREATE TABLE IF NOT EXISTS `entries` (
 	`id` int(100) NOT NULL AUTO_INCREMENT,
 	`date` varchar(10) NOT NULL,
