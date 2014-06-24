@@ -4,7 +4,7 @@ Accountant
 > Accountant is a Laravel application with a simple goal; keep track of your running budget / expense / income tallies.
 
 ### Screenshots
-[<img src="http://upimg.me/c524ce60a7f14a1eedb77873ab83a086.png" />](http://upimg.me/c524ce60a7f14a1eedb77873ab83a086.png)&nbsp;[<img src="http://upimg.me/f4c943975e887323ba01b97144bfd579.png" />](http://upimg.me/f4c943975e887323ba01b97144bfd579.png)&nbsp;[<img src="http://upimg.me/fe58a5942885c30336d83c30ad19d806.png" />](http://upimg.me/fe58a5942885c30336d83c30ad19d806.png)&nbsp;
+[<img src="http://upimg.me/c524ce60a7f14a1eedb77873ab83a086.png" />](http://upimg.me/c524ce60a7f14a1eedb77873ab83a086.png)&nbsp;[<img src="http://upimg.me/f4c943975e887323ba01b97144bfd579.png" />](http://upimg.me/f4c943975e887323ba01b97144bfd579.png)&nbsp;
 
 ### Installation
 ```bash
