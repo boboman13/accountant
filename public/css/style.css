@@ -17,6 +17,14 @@ body {
 h3 .btn {
 	margin-bottom: 10px;
 }
+input[type="submit"] {
+	margin-bottom: 10px;
+}
+
+/* Tables */
+table a {
+	text-decoration: none !important;
+}
 
 /* Overview subsections */
 .overview .well {

@@ -25,8 +25,8 @@ class EntryController extends \BaseController {
 			}
 		}
 
-		// Generate balance
-		$balance = $income - $expenses;
+		// Generate balance; note, expenses are negative, so add.
+		$balance = $income + $expenses;
 
 		return View::make('all_entries')->with(array(
 			'entries' => $entries,
@@ -34,7 +34,6 @@ class EntryController extends \BaseController {
 			'expenses' => $expenses,
 			'income' => $income
 			));
-		//return View::make('all_entries')->with('entries', $entries);
 	}
 
 
@@ -45,7 +44,7 @@ class EntryController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('new_entry');
 	}
 
 
@@ -56,7 +55,31 @@ class EntryController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validator = Validator::make($input,
+			array(
+				'date' => 'required',
+				'difference' => 'required',
+				'invoice_id' => '',
+				'description' => 'required',
+				'notes' => ''
+				)
+			);
+
+		if ($validator->fails()) {
+			echo 'Uh oh, you bad. Error: ' . var_dump($validator->messages()) . '.';
+		} else {
+			$entry = new Entry();
+			$entry->date = Input::get('date');
+			$entry->difference = Input::get('difference');
+			$entry->invoice_id = Input::get('invoice_id');
+			$entry->description = Input::get('description');
+			$entry->notes = Input::get('notes');
+
+			$entry->save();
+
+			return Redirect::to('/')->with('result', 'Entry created.');
+		}
 	}
 
 
@@ -80,7 +103,15 @@ class EntryController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$entry = Entry::find($id);
+		return View::make('edit_entry')->with(array(
+			'date' => $entry->date,
+			'difference' => $entry->difference,
+			'invoice_id' => $entry->invoice_id,
+			'description' => $entry->description,
+			'notes' => $entry->notes,
+			'id' => $entry->id,
+			));
 	}
 
 
@@ -92,7 +123,16 @@ class EntryController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$entry = Entry::find($id);
+		$entry->date = Input::get('date');
+		$entry->difference = Input::get('difference');
+		$entry->invoice_id = Input::get('invoice_id');
+		$entry->description = Input::get('description');
+		$entry->notes = Input::get('notes');
+
+		$entry->save();
+
+		return Redirect::to('/')->with('result', 'Edited successfully.');
 	}
 
 

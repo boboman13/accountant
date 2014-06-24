@@ -9,4 +9,11 @@ class Entry extends Eloquent {
 	 */
 	protected $table = 'entries';
 
+	/**
+	 * Don't put timestamps in the database.
+	 *
+	 * @var boolean
+	 */
+	public $timestamps = false;
+
 }

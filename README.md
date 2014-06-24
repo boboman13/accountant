@@ -7,18 +7,12 @@ Accountant
 ```bash
 $ git clone https://github.com/boboman13/accountant && cd accountant
 ```
-At this point, go ahead and log into a MySQL shell. Create a database and `use` it. Then run these table create texts:
-```sql
-CREATE TABLE `entries` (
-	`id` int(100) NOT NULL AUTO_INCREMENT,
-	`date` varchar(10) NOT NULL,
-	`difference` DECIMAL(10,2) SIGNED NOT NULL,
-	`description` MEDIUMTEXT NOT NULL,
-	`notes` LONGTEXT,
-	`invoice_id` int(100),
-	PRIMARY KEY (id)
-);
+At this point, go ahead and initiate the database by doing the following: (You can substitute user and password field for anything, according to your install)
+```bash
+$ mysql -u root -p < init.sql
 ```
+That takes in all the commands from `init.sql` and puts them into a new database called `accountant`.
+
 
 Then at this point, you need to configure your MySQL connection details. You can find these in the `app/config/database.php` file. Configure to your delight. Once completed, continue.
 

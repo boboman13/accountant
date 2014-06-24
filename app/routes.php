@@ -12,3 +12,8 @@
 */
 
 Route::resource('/', 'EntryController');
+
+Route::get('/{id}/edit', 'EntryController@edit');
+Route::post('/{id}/save', 'EntryController@update');
+
+Route::get('/{id}/delete', 'EntryController@destroy');

@@ -12,6 +12,12 @@
 			<h1>Accountant <small>Built by <a href="https://github.com/boboman13">boboman13</a></small></h1>
 			<hr />
 
+			<?php if (Session::has('message')) { ?>
+			<div class="alert alert-info">
+				<?php echo Session::get('message'); ?>
+			</div>
+			<?php } ?>
+
 			<div class="row overview">
 				<div class="col-sm-4">
 					<div class="well">
@@ -20,7 +26,7 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="well">
-						<h4>Total expenses: $<?php echo $expenses; ?></h4>
+						<h4>Total expenses: $<?php echo abs($expenses); ?></h4>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -39,6 +45,7 @@
 						<th>Difference</th>
 						<th>Description</th>
 						<th>Invoice ID</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,6 +56,7 @@
 						<td>$<?php echo $entry->difference; ?></td>
 						<td><?php echo $entry->description; ?></td>
 						<td><?php echo $entry->invoice_id; ?></td>
+						<td><a class="btn btn-warning btn-xs" href="/<?php echo $entry->id; ?>/edit">Edit</a> <a class="btn btn-danger btn-xs" href="/<?php echo $entry->id; ?>/delete">Delete</a></td>
 					</tr>
 					<?php } ?>
 				</tbody>
