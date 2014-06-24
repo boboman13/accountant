@@ -6,6 +6,8 @@ Accountant
 ### Screenshots
 [<img src="http://upimg.me/c524ce60a7f14a1eedb77873ab83a086.png" />](http://upimg.me/c524ce60a7f14a1eedb77873ab83a086.png)&nbsp;[<img src="http://upimg.me/f4c943975e887323ba01b97144bfd579.png" />](http://upimg.me/f4c943975e887323ba01b97144bfd579.png)&nbsp;
 
+**Note**: Accountant does not currently provide security against XSS attacks among other webernet security attacks. It is *not recommended* to keep it on a public facing server.
+
 ### Installation
 ```bash
 $ git clone https://github.com/boboman13/accountant && cd accountant
