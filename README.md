@@ -6,7 +6,10 @@ Accountant
 ### Installation
 ```bash
 $ git clone https://github.com/boboman13/accountant && cd accountant
+```
+Then at this point, you need to configure your MySQL connection details. You can find these in the `app/config/database.php` file. Configure to your delight. Once completed, continue.
 
+```bash
 $ composer install
 $ php artisan serve
 ```
