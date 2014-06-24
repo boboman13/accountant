@@ -9,7 +9,32 @@ class EntryController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$entries = Entry::all();
+
+		$expenses = 0;
+		$income = 0;
+
+		// Build up totals
+		foreach ($entries as $entry) {
+			// if income
+			if ($entry->difference > 0) {
+				$income += $entry->difference;
+			} else {
+				// if not
+				$expenses += $entry->difference;
+			}
+		}
+
+		// Generate balance
+		$balance = $income - $expenses;
+
+		return View::make('all_entries')->with(array(
+			'entries' => $entries,
+			'balance' => $balance,
+			'expenses' => $expenses,
+			'income' => $income
+			));
+		//return View::make('all_entries')->with('entries', $entries);
 	}
 
 
@@ -79,7 +104,10 @@ class EntryController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$entry = Entry::find($id);
+		$entry->delete();
+
+		return Redirect::to('/')->with('result', 'Deletion completed.');
 	}
 
 
