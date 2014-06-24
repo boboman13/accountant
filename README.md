@@ -6,6 +6,8 @@ Accountant
 ### Installation
 ```bash
 $ git clone https://github.com/boboman13/accountant && cd accountant
+
+$ composer install
 $ php artisan serve
 ```
 
