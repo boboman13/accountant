@@ -12,7 +12,7 @@ At this point, go ahead and log into a MySQL shell. Create a database and `use` 
 CREATE TABLE `entries` (
 	`id` int(100) NOT NULL AUTO_INCREMENT,
 	`date` varchar(10) NOT NULL,
-	`difference` DECIMAL(10,2) UNSIGNED NOT NULL,
+	`difference` DECIMAL(10,2) SIGNED NOT NULL,
 	`description` MEDIUMTEXT NOT NULL,
 	`notes` LONGTEXT,
 	`invoice_id` int(100),
